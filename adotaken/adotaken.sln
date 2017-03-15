@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFOpgave2", "WPFOpgave2\WPFOpgave2.csproj", "{D01F1C8C-367B-4247-A7D0-A2EF06DACEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakenGemeenschap", "ClassLibrary1\TakenGemeenschap.csproj", "{C45CBB14-C98A-4F1F-B5DE-3279783047F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D01F1C8C-367B-4247-A7D0-A2EF06DACEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01F1C8C-367B-4247-A7D0-A2EF06DACEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01F1C8C-367B-4247-A7D0-A2EF06DACEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01F1C8C-367B-4247-A7D0-A2EF06DACEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
