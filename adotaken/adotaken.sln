@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFOpgave2", "WPFOpgave2\WP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakenGemeenschap", "ClassLibrary1\TakenGemeenschap.csproj", "{C45CBB14-C98A-4F1F-B5DE-3279783047F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFOpgave3", "H:\newrepo\adotaken\adotaken\WPFOpgave3\WPFOpgave3.csproj", "{28296F07-7579-4E31-A6B4-6D30C22D6714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C45CBB14-C98A-4F1F-B5DE-3279783047F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28296F07-7579-4E31-A6B4-6D30C22D6714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28296F07-7579-4E31-A6B4-6D30C22D6714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28296F07-7579-4E31-A6B4-6D30C22D6714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28296F07-7579-4E31-A6B4-6D30C22D6714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

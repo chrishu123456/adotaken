@@ -24,5 +24,66 @@ namespace TakenGemeenschap
             return conTuincentrum;
 
         }
+
+        public int Toevoegen(string leverancier, string adres, string postcode, string plaats)
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+
+            using (var TuincentrumDbConnect = TuincentrumDb.GetConnection())
+            {
+                using (var TuincentrumDbCommand = TuincentrumDbConnect.CreateCommand())
+                {
+
+                    TuincentrumDbCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    TuincentrumDbCommand.CommandText = "Toevoegen";
+
+                    DbParameter TuincentrumDbParLeverancier = TuincentrumDbCommand.CreateParameter();
+                    TuincentrumDbParLeverancier.ParameterName = "@Leverancier";
+                    TuincentrumDbParLeverancier.Value = leverancier;
+                    TuincentrumDbParLeverancier.DbType = System.Data.DbType.String;
+                    TuincentrumDbCommand.Parameters.Add(TuincentrumDbParLeverancier);
+
+                    DbParameter TuincentrumDbParAdres = TuincentrumDbCommand.CreateParameter();
+                    TuincentrumDbParAdres.ParameterName = "@Adres";
+                    TuincentrumDbParAdres.Value = adres;
+                    TuincentrumDbParAdres.DbType = System.Data.DbType.String;
+                    TuincentrumDbCommand.Parameters.Add(TuincentrumDbParAdres);
+
+                    DbParameter TuincentrumDbParPostcode = TuincentrumDbCommand.CreateParameter();
+                    TuincentrumDbParPostcode.ParameterName = "@Postcode";
+                    TuincentrumDbParPostcode.DbType = System.Data.DbType.String;
+                    TuincentrumDbParPostcode.Value = postcode;
+
+                    TuincentrumDbCommand.Parameters.Add(TuincentrumDbParPostcode);
+
+                    DbParameter TuincentrumDbParPlaats = TuincentrumDbCommand.CreateParameter();
+                    TuincentrumDbParPlaats.ParameterName = "@Plaats";
+                    TuincentrumDbParPlaats.Value = plaats;
+                    TuincentrumDbParPlaats.DbType = System.Data.DbType.String;
+                    TuincentrumDbCommand.Parameters.Add(TuincentrumDbParPlaats);
+
+                    TuincentrumDbConnect.Open();
+                    return TuincentrumDbCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public int EindejaarsKorting()
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+
+            using (var TuincentrumDbConnect = TuincentrumDb.GetConnection())
+            {
+                using (var TuincentrumDbCommand = TuincentrumDbConnect.CreateCommand())
+                {
+                    TuincentrumDbCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    TuincentrumDbCommand.CommandText = "EindejaarsKorting";
+
+                    TuincentrumDbConnect.Open();
+                    return TuincentrumDbCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }
