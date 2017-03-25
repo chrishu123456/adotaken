@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TakenGemeenschap;
 
-namespace WpfOpgave4
+namespace WPFOpgave3
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,8 +25,6 @@ namespace WpfOpgave4
         {
             InitializeComponent();
         }
-
- 
 
         private void ToevoegenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -79,23 +77,5 @@ namespace WpfOpgave4
             }
 
         }
-
-        private void ButtonVervangLeverancier_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var manager = new TuincentrumDbManager();
-
-                manager.VervangLeverancier();
-            }
-            catch (Exception ex)
-            {
-                LabelMeldingen.Content = "Button VervangLeverancier : " + ex.Message;
-            }
-            
-        }
-
     }
-
-
 }

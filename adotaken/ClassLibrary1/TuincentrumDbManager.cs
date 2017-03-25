@@ -85,5 +85,27 @@ namespace TakenGemeenschap
             }
         }
 
+        public void VervangLeverancier()
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+
+            using (var TuincentrumDbConnection = TuincentrumDb.GetConnection())
+            {
+                TuincentrumDbConnection.Open();
+
+                using (var TuincentrumDbTransaction = TuincentrumDbConnection.BeginTransaction())
+                {
+                    using (var TuincentrumDbVervangInPlantenTabelLev2DoorLev3Command = TuincentrumDbConnection.CreateCommand())
+                    {
+                        TuincentrumDbVervangInPlantenTabelLev2DoorLev3Command.CommandType = CommandType.StoredProcedure;
+                        TuincentrumDbVervangInPlantenTabelLev2DoorLev3Command.CommandText = "Vervanglev2doorlev3";
+
+                        TuincentrumDbVervangInPlantenTabelLev2DoorLev3Command.Transaction = TuincentrumDbTransaction;
+                         
+                    }
+                }
+            }
+        }
+    
     }
 }

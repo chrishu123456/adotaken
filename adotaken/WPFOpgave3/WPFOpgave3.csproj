@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{875A0A8E-B58F-4467-906B-ED68DBFD7CC6}</ProjectGuid>
+    <ProjectGuid>{39ACE909-6D7F-470E-B8EC-CC6E6724F2DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfOpgave4</RootNamespace>
-    <AssemblyName>WpfOpgave4</AssemblyName>
+    <RootNamespace>WPFOpgave3</RootNamespace>
+    <AssemblyName>WPFOpgave3</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
