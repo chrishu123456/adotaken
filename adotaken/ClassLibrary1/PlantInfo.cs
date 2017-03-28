@@ -8,6 +8,14 @@ namespace TakenGemeenschap
 {
     public class PlantInfo
     {
+        private int plantnrValue;
+
+        public int PlantNr
+        {
+            get { return plantnrValue; }
+            set { plantnrValue = value; }
+        }
+
         private String naamValue;
 
         public String Naam
@@ -16,20 +24,20 @@ namespace TakenGemeenschap
             set { naamValue = value; }
         }
 
-        private String soortValue;
+        private Int32 soortnrValue;
 
-        public String Soort
+        public Int32 SoortNr
         {
-            get { return soortValue; }
-            set { soortValue = value; }
+            get { return soortnrValue; }
+            set { soortnrValue = value; }
         }
 
-        private String leverancierValue;
+        private Int32 leveranciernrValue;
 
-        public String Leverancier
+        public Int32 LeverancierNr
         {
-            get { return leverancierValue; }
-            set { leverancierValue = value; }
+            get { return leveranciernrValue; }
+            set { leveranciernrValue = value; }
         }
 
         private String kleurValue;
@@ -40,26 +48,27 @@ namespace TakenGemeenschap
             set { kleurValue = value; }
         }
 
-        private Decimal kostprijsValue;
+        private Decimal verkoopprijsValue;
 
-        public Decimal Kostprijs
+        public Decimal VerkoopPrijs
         {
-            get { return kostprijsValue; }
-            set { kostprijsValue = value; }
+            get { return verkoopprijsValue; }
+            set { verkoopprijsValue = value; }
         }
 
-        public PlantInfo():this(null, null, null, null, 0m)
+        public PlantInfo():this(0, null, 0, 0, null, 0m)
         {
 
         }
 
-        public PlantInfo(string naam, string soort, string leverancier, string kleur, decimal kostprijs)
+        public PlantInfo(int nummer, string naam, int soortnr, int leveranciernr, string kleur, decimal verkoopprijs)
         {
+            this.PlantNr = nummer;
             this.Naam = naam;
-            this.Soort = soort;
-            this.Leverancier = leverancier;
+            this.SoortNr = soortnr;
+            this.LeverancierNr = leveranciernr;
             this.Kleur = kleur;
-            this.Kostprijs = kostprijs;
+            this.VerkoopPrijs = verkoopprijs;
         }
     }
 }

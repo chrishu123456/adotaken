@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TakenGemeenschap;
 
 namespace WpfOpgave9
 {
@@ -20,6 +21,8 @@ namespace WpfOpgave9
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<PlantInfo> Planten = new List<PlantInfo>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,12 +30,39 @@ namespace WpfOpgave9
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var manager = new TuincentrumDbManager();
 
+                ComboboxSoort.DisplayMemberPath = "Soort";
+                ComboboxSoort.SelectedValuePath = "SoortNr";
+
+                ComboboxSoort.ItemsSource = manager.GetSoorten();
+
+
+            }
+            catch (Exception ex)
+            {
+                LabelMeldingen.Content = "Combobox : " + ex.Message;
+            }
         }
 
         private void ComboboxSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
+                var manager = new TuincentrumDbManager();
+                Int32 soortnr = Convert.ToInt32(ComboboxSoort.SelectedValue);
+                Planten = manager.GetAllePlantInfo(soortnr);
+                ListboxPlantenPerSoort.ItemsSource = Planten;
 
+                ListboxPlantenPerSoort.DisplayMemberPath = "Naam";
+                
+            }
+            catch (Exception ex)
+            {
+                LabelMeldingen.Content = "Listbox : " + ex.Message;
+            }
         }
     }
 }

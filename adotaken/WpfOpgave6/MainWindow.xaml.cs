@@ -33,13 +33,14 @@ namespace WpfOpgave6
             {
                 var manager = new TuincentrumDbManager();
 
-               
-                PlantInfo plant = manager.PlantOpzoeken(TextBoxPlantnummer.Text);
+     /*          
+               PlantInfo plant = manager.PlantOpzoeken(TextBoxPlantnummer.Text);
                 LabeLNaam.Content = "Naam : " + plant.Naam;
                 LabelSoort.Content = "Soort : " + plant.Soort;
                 LabelLeverancier.Content = "Leverancier : " + plant.Leverancier;
                 LabelKleur.Content = "Kleur : " + plant.Kleur;
                 LabelKostprijs.Content = "Kostprijs : " + plant.Kostprijs.ToString();
+                */
             }
             catch (Exception ex)
             {
