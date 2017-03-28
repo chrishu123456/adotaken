@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TakenGemeenschap;
 
-namespace WpfOpgave4
+namespace WpfOpgave7
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,8 +25,6 @@ namespace WpfOpgave4
         {
             InitializeComponent();
         }
-
- 
 
         private void ToevoegenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -80,23 +78,34 @@ namespace WpfOpgave4
 
         }
 
-        private void ButtonVervangLeverancier_Click(object sender, RoutedEventArgs e)
+        private void ButtonToevoegenRecord_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var manager = new TuincentrumDbManager();
 
-                manager.VervangLeverancier();
-                LabelMeldingen.Content = "Leverancier 2 door Leverancier 3 vervangen.";
+                var Lev = new Leverancier();
+
+                Lev.Naam = TextBoxNaam.Text;
+                Lev.Adres = TextBoxAdres.Text;
+                Lev.PostNr = TextBoxPostcode.Text;
+                Lev.Woonplaats = TextBoxPlaats.Text;
+                Int64 resultaat = manager.RecordNummerNaToevoegen(Lev.Naam, Lev.Adres, Lev.PostNr,Lev.Woonplaats);
+
+                if (resultaat != 0)
+                {
+                    LabelMeldingen.Content = "Leverancier record nummer " + resultaat.ToString() + " is toegevoegd.";
+                }
+                else
+                {
+                    LabelMeldingen.Content = "Probleem met het toevoegen van de record.";
+                }
+
             }
             catch (Exception ex)
             {
-                LabelMeldingen.Content = "Button VervangLeverancier : " + ex.Message;
+                LabelMeldingen.Content = "Button RecordNummer Na Toevoegen : " + ex.Message;
             }
-            
         }
-
     }
-
-
 }

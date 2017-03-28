@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfOpgave6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOpgave6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="725">
+    <Grid>
+        <Label Name="LabelPlantnummer" Content="Plantnummer : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,500,450" Width="100"></Label>
+        <TextBox Name="TextBoxPlantnummer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,360,450" Width="40"></TextBox>
+
+        <Button Name="ButtonOpzoeken" Content="Opzoeken" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,160,450" Width="100" Click="ButtonOpzoeken_Click"></Button>
+
+        <Label Name="LabeLNaam" Content="Naam : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,350" Width="200"></Label>
+        <Label Name="LabelSoort" Content="Soort : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,250" Width="200"></Label>
+        <Label Name="LabelLeverancier" Content="Leverancier : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,150" Width="200"></Label>
+
+        <Label Name="LabelKleur" Content="Kleur : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,50" Width="200"></Label>
+        <Label Name="LabelKostprijs" Content="Kostprijs : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,400,0" Width="200"></Label>
+
+        <Label Name="LabelMeldingen" Content="Button Opzoeken : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,150,0,0" Width="700"></Label>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfOpgave7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOpgave7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="725">
+    <Grid>
+        <Label Name="LabelNaam" Content="Naam : " HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,500,250"></Label>
+        <TextBox Name="TextBoxNaam" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,300,250"></TextBox>
+        <Label Name="LabelAdres" Content="Adres : " HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,500,150"></Label>
+        <TextBox Name="TextBoxAdres" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,300,150"></TextBox>
+        <Label Name="LabelPostcode" Content="Postcode : " HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,500,50"></Label>
+        <TextBox Name="TextBoxPostcode" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,0,300,50"></TextBox>
+        <Label Name="LabelPlaats" Content="Plaats : " HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,50,500,0"></Label>
+        <TextBox Name="TextBoxPlaats" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,50,300,0"></TextBox>
+
+        <Button Name="ButtonToevoegenRecord" Content="Record Nummer Na Toevoegen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="0,150,400,0" Click="ButtonToevoegenRecord_Click"></Button>
+        <Button Name="ButtonEindejaarskorting" Content="Eindejaarskorting" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,150,0,0" Click="EindejaarskortingButton_Click"></Button>
+
+        <Label Name="LabelMeldingen" Content="no comment" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Margin="0,250,0,0"></Label>
+    </Grid>
+</Window>

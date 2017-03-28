@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfOpgave5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOpgave5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="725">
+    <Grid>
+        <Label Name="LabelSoort" Content="Soort : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,500,200" Width="100"></Label>
+        <TextBox Name="TextBoxSoort" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,300,200" Width="100"></TextBox>
+
+        <Button Name="ButtonGemKostprijs" Content="Gemiddelde KostPrijs Berekenen" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,100" Width="200" Click="ButtonGemKostprijs_Click"></Button>
+
+        <Label Name="LabelGemKostprijs" Content="Gemiddelde Kostprijs : " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,400,0" Width="200"></Label>
+
+        <Label Name="LabelMeldingen" Content="No comment" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" Width="700"></Label>
+    </Grid>
+</Window>
