@@ -282,5 +282,89 @@ namespace TakenGemeenschap
                 }
             }
         }
-    }
+
+        public List<PlantSoort> GetSoorten()
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+
+            List<PlantSoort> soorten = new List<PlantSoort>();
+
+            using (var TuincentrumDbConnection = TuincentrumDb.GetConnection())
+            {
+                using (var TuincentrumDbCommand = TuincentrumDbConnection.CreateCommand())
+                {
+                    TuincentrumDbCommand.CommandType = CommandType.Text;
+                    TuincentrumDbCommand.CommandText = "Select Soort, SoortNr from Soorten";
+                  //  TuincentrumDbCommand.CommandText = "Select Planten.Naam from Planten inner join Soorten on Soorten.SoortNr = Planten.SoortNr where Soorten.Soort=@soort";
+
+             //       DbParameter ParTuincentrumSoort = TuincentrumDbCommand.CreateParameter();
+             //       ParTuincentrumSoort.ParameterName = "@soortnr";
+             //       ParTuincentrumSoort.Value = soort;
+             //       ParTuincentrumSoort.DbType = DbType.String;
+
+               //     TuincentrumDbCommand.Parameters.Add(ParTuincentrumSoort);
+
+                    TuincentrumDbConnection.Open();
+
+                    using (var reader = TuincentrumDbCommand.ExecuteReader())
+                    {
+                     //   Int32 PlantNrPos = reader.GetOrdinal("PlantNr");
+                        Int32 SoortPos = reader.GetOrdinal("Soort");
+                        Int32 SoortNrPos = reader.GetOrdinal("SoortNr");
+                     //   Int32 SoortNrPos = reader.GetOrdinal("SoortNr");
+                     //   Int32 LevNrPos = reader.GetOrdinal("Levnr");
+                     //   Int32 KleurPos = reader.GetOrdinal("Kleur");
+                     //   Int32 VerkoopprijsPos = reader.GetOrdinal("VerkoopPrijs");
+
+                        while (reader.Read())
+                        {
+                            soorten.Add(new PlantSoort(reader.GetString(SoortPos), reader.GetInt32(SoortNrPos)));
+                        }
+                    }
+
+
+                }
+            }
+            return soorten;
+        }
+
+        public List<String> GetPlanten(Int32 soortnr)
+
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+
+            List<String> planten = new List<String>();
+
+            using (var TuincentrumDbConnection = TuincentrumDb.GetConnection())
+            {
+                using (var TuincentrumDbCommand = TuincentrumDbConnection.CreateCommand())
+                {
+                    TuincentrumDbCommand.CommandType = CommandType.Text;
+
+                    TuincentrumDbCommand.CommandText = "Select Naam from Planten where SoortNr=@soortnr";
+
+                    DbParameter ParTuincentrumSoort = TuincentrumDbCommand.CreateParameter();
+                    ParTuincentrumSoort.ParameterName = "@soortnr";
+                    ParTuincentrumSoort.Value = soortnr;
+                    ParTuincentrumSoort.DbType = DbType.Int32;
+
+                    TuincentrumDbCommand.Parameters.Add(ParTuincentrumSoort);
+
+                    TuincentrumDbConnection.Open();
+                    using (var reader = TuincentrumDbCommand.ExecuteReader())
+                    {
+                        Int32 PlantNaamPos = reader.GetOrdinal("Naam");
+
+                        while (reader.Read())
+                        {
+                            planten.Add(reader.GetString(PlantNaamPos));
+                        }
+                    }
+
+
+                }
+            }
+            return planten;
+        }
+            }
 }
