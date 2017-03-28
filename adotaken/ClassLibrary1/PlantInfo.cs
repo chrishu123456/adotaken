@@ -8,13 +8,19 @@ namespace TakenGemeenschap
 {
     public class PlantInfo
     {
-        private int plantnrValue;
 
+        public bool changed { get; set; }
+                                           //  private int plantnrValue;
+
+        public int PlantNr { get; set; }
+
+        /*
         public int PlantNr
         {
             get { return plantnrValue; }
             set { plantnrValue = value; }
         }
+        */
 
         private String naamValue;
 
@@ -32,20 +38,28 @@ namespace TakenGemeenschap
             set { soortnrValue = value; }
         }
 
-        private Int32 leveranciernrValue;
+        // private Int32 leveranciernrValue;
 
+        public int LeverancierNr { get; set; }
+
+        /*
         public Int32 LeverancierNr
         {
             get { return leveranciernrValue; }
             set { leveranciernrValue = value; }
         }
 
+    */
         private String kleurValue;
 
         public String Kleur
         {
             get { return kleurValue; }
-            set { kleurValue = value; }
+            set
+            {
+                kleurValue = value;
+                changed = true;
+            }
         }
 
         private Decimal verkoopprijsValue;
@@ -53,8 +67,13 @@ namespace TakenGemeenschap
         public Decimal VerkoopPrijs
         {
             get { return verkoopprijsValue; }
-            set { verkoopprijsValue = value; }
+            set
+            {
+                verkoopprijsValue = value;
+                changed = true;
+             }
         }
+
 
         public PlantInfo():this(0, null, 0, 0, null, 0m)
         {
@@ -69,6 +88,7 @@ namespace TakenGemeenschap
             this.LeverancierNr = leveranciernr;
             this.Kleur = kleur;
             this.VerkoopPrijs = verkoopprijs;
+            this.changed = false;
         }
     }
 }

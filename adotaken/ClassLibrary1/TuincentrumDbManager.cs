@@ -412,5 +412,50 @@ namespace TakenGemeenschap
             }
             return planten;
         }
+
+        public void GewijzigdePlantenOpslaan(List<PlantInfo> planten)
+        {
+            var TuincentrumDb = new TuincentrumDbManager();
+            using (var TuincentrumDbConnection = TuincentrumDb.GetConnection())
+            {
+                using (var TuincentrumUpdateCommand = TuincentrumDbConnection.CreateCommand())
+                {
+                    TuincentrumUpdateCommand.CommandType = CommandType.Text;
+                    TuincentrumUpdateCommand.CommandText = "update Planten set Kleur=@kleur, VerkoopPrijs=@verkoopprijs where PlantNr=@plantnr";
+
+                    var ParTuincentrumKleur = TuincentrumUpdateCommand.CreateParameter();
+                    ParTuincentrumKleur.ParameterName = "@kleur";
+                    ParTuincentrumKleur.DbType = DbType.String;
+
+                    TuincentrumUpdateCommand.Parameters.Add(ParTuincentrumKleur);
+
+                    var ParTuincentrumVerkoopprijs = TuincentrumUpdateCommand.CreateParameter();
+                    ParTuincentrumVerkoopprijs.ParameterName = "@verkoopprijs";
+                    ParTuincentrumVerkoopprijs.DbType = DbType.Currency;
+
+                    TuincentrumUpdateCommand.Parameters.Add(ParTuincentrumVerkoopprijs);
+
+                    var ParTuincentrumPlantNr = TuincentrumUpdateCommand.CreateParameter();
+                    ParTuincentrumPlantNr.ParameterName = "@plantnr";
+                    ParTuincentrumPlantNr.DbType = DbType.Int32;
+
+                    TuincentrumUpdateCommand.Parameters.Add(ParTuincentrumPlantNr);
+
+                    TuincentrumDbConnection.Open();
+                   
+
+                    foreach (PlantInfo p in planten)
+                    {
+                        ParTuincentrumKleur.Value = p.Kleur;
+                        ParTuincentrumVerkoopprijs.Value = p.VerkoopPrijs;
+                        ParTuincentrumPlantNr.Value = p.PlantNr;
+                        if (TuincentrumUpdateCommand.ExecuteNonQuery() == 0)
+                        { throw new Exception(p.Naam + "opslaan mislukt");  }
+                    }
+
+                }
+            }
+        }
     }
+
 }

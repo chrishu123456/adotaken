@@ -30,7 +30,7 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        
+        <Button Name="Opslaan" Content="Opslaan" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,200,100,0" Click="Opslaan_Click"></Button>
 
         <Label Name="LabelMeldingen" Content="no commment" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Margin="0,280,0,0"></Label>
     </Grid>

@@ -23,6 +23,7 @@ namespace WpfOpgave9
     {
         List<PlantInfo> Planten = new List<PlantInfo>();
 
+        private string GeselecteerdeSoortNaam;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +54,8 @@ namespace WpfOpgave9
             {
                 var manager = new TuincentrumDbManager();
                 Int32 soortnr = Convert.ToInt32(ComboboxSoort.SelectedValue);
+
+                GeselecteerdeSoortNaam = ((PlantSoort)ComboboxSoort.SelectedItem).Soort;
                 Planten = manager.GetAllePlantInfo(soortnr);
                 ListboxPlantenPerSoort.ItemsSource = Planten;
 
@@ -62,6 +65,37 @@ namespace WpfOpgave9
             catch (Exception ex)
             {
                 LabelMeldingen.Content = "Listbox : " + ex.Message;
+            }
+        }
+
+        private void Opslaan_Click(object sender, RoutedEventArgs e)
+        {
+            List<PlantInfo> gewijzigdePlanten = new List<PlantInfo>();
+
+            foreach (PlantInfo p in Planten)
+            {
+                if (p.changed == true)
+                {
+                    gewijzigdePlanten.Add(p);
+                    p.changed = false;
+                }
+
+
+            }
+
+            if ( (gewijzigdePlanten.Count >0)  && (MessageBox.Show("Gewijzigde planten van soort '" + GeselecteerdeSoortNaam + " 'opslaan ? ","Opslaan" , MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.Yes))
+                {
+                var manager = new TuincentrumDbManager();
+                try
+                {
+                    manager.GewijzigdePlantenOpslaan(gewijzigdePlanten);
+                    LabelMeldingen.Content = "Button Opslaan : " + "Planten Opgeslagen";
+                }
+                catch (Exception ex)
+                {
+                    LabelMeldingen.Content = "Button Opslaan : " + ex.Message;
+                }
+
             }
         }
     }
